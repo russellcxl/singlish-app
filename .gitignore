@@ -36,10 +36,10 @@ yarn-debug.log*
 .yarn-integrity
 
 
-database.yml
-config/database.yml
-/config/database.yml
+# database.yml
+# config/database.yml
+# /config/database.yml
 
-database
-config/database
-/config/database
+# database
+# config/database
+# /config/database
