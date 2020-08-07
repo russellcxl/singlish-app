@@ -24,4 +24,11 @@ class UsersController < ApplicationController
 
   def destroy
   end
+
+  private
+
+  def users_without_admin
+    @users = User.all
+  end
+
 end
