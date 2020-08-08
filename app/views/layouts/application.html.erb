@@ -25,7 +25,6 @@
       
       <%= link_to "Singlish", users_path, class: "navbar-brand text-light" %>
 
-
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <% if user_signed_in? %>
             <%= link_to current_user.username, user_path(current_user.id), class: "nav-link ml-auto text-light" %>
