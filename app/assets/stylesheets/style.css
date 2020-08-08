@@ -8,3 +8,30 @@ body {
      color: black;
 }
 
+
+.oneAlphabet {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-size: 200px;
+}
+
+/* classes: Playfair Display Font */
+.playfairRegular {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+}
+
+.playfairMedium {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+}
+
+.playfairBold {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+}
+
+.playfairExtraBold {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+}
