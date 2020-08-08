@@ -1,0 +1,10 @@
+/* body hash syntax means styling to the body portion of the HTML file */
+/* IBM Plex Sans font weights: light300/regular400/medium500/bold700 */
+
+body {
+     background-color: #e6e6e6;
+     background-size: 100%;
+     font-family: 'IBM Plex Sans', sans-serif;
+     color: black;
+}
+
