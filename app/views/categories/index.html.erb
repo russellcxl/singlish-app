@@ -1,7 +1,8 @@
 <h1>Categories#index</h1>
 
+<h1 class="oneAlphabet">A B C D</h1>
 <%# create index of all letters in alphabets %>
-<ul>
+<ul class="oneAlphabet">
     <% ("a"..."z").each do |letter| %>
         <li><%= link_to letter.upcase, category_path(letter) %></li>
     <% end %>

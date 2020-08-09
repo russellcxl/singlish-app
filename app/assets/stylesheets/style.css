@@ -1,5 +1,6 @@
 /* body hash syntax means styling to the body portion of the HTML file */
 /* IBM Plex Sans font weights: light300/regular400/medium500/bold700 */
+/* PlayFair Display font weights: regular400/medium500/bold700/extrabold800 */
 
 body {
      background-color: #e6e6e6;
@@ -11,7 +12,7 @@ body {
 
 .oneAlphabet {
     font-family: 'Playfair Display', serif;
-    font-weight: 800;
+    font-weight: 700;
     font-size: 200px;
 }
 
