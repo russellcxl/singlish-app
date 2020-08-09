@@ -45,7 +45,7 @@ Many times, foreign visitors who are residing in Singapore find it hard to under
 #### References
 Primary font: <a href="https://fonts.google.com/specimen/IBM+Plex+Sans?query=IBM+">IBM Sans Plex Font</a>
 
-Secondary font:<a href="https://www.typewolf.com/site-of-the-day/fonts/playfair-display">Playfair Display</a> by Claus Eggers Sørensen
+Secondary font: <a href="https://www.typewolf.com/site-of-the-day/fonts/playfair-display">Playfair Display</a> by Claus Eggers Sørensen
 
 Inspiration sources:
 <a href="https://www.singlish.net/">singlish.net</a>
