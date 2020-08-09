@@ -1,2 +1,10 @@
-<h1>Tags#show</h1>
+<h1><%= @tag.name %>#show</h1>
 <p>Find me in app/views/tags/show.html.erb</p>
+
+<% @tag.posts.each do |tag| %>
+
+<ul>
+    <li><%= link_to tag.word %></li>
+</ul>
+
+<% end %>
