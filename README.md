@@ -22,3 +22,10 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+
+#### References
+<a href="https://www.typewolf.com/site-of-the-day/fonts/playfair-display">Font</a> by Claus Eggers Sørensen
+
+<a href="https://fonts.google.com/specimen/IBM+Plex+Sans?query=IBM+">IBM Sans Plex Font</a>

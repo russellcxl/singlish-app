@@ -1,0 +1,37 @@
+/* body hash syntax means styling to the body portion of the HTML file */
+/* IBM Plex Sans font weights: light300/regular400/medium500/bold700 */
+
+body {
+     background-color: #e6e6e6;
+     background-size: 100%;
+     font-family: 'IBM Plex Sans', sans-serif;
+     color: black;
+}
+
+
+.oneAlphabet {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-size: 200px;
+}
+
+/* classes: Playfair Display Font */
+.playfairRegular {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+}
+
+.playfairMedium {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+}
+
+.playfairBold {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+}
+
+.playfairExtraBold {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+}
