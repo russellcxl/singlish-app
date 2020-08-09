@@ -22,8 +22,13 @@
         <td><%= post.description %></td>
         <td><%= post.example %></td>
         <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+        <%# prevents you from editing or deleting other users' posts %>
+        <% if post.user_id == current_user.id %>
+            <td><%= link_to 'Edit', edit_post_path(post) %></td>
+            <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+
       </tr>
     <% end %>
   </tbody>
@@ -31,4 +36,7 @@
 
 <br>
 
-<%= link_to 'New Post', new_post_path %>
+<%# new post option only shows on your profile page %>
+<% if @user.id == current_user.id %>
+    <%= link_to 'New Post', new_post_path %>
+<% end %>

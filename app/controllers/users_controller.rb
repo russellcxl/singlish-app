@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @posts = Post.all.select { |post| post.user_id == current_user.id } #selects only current user's posts
+    @posts = Post.all.select { |post| post.user_id == @user.id }
   end
 
   def new

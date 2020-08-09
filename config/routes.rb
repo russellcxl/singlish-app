@@ -11,12 +11,12 @@ Rails.application.routes.draw do
   # get 'users/update'
   # get 'users/destroy'
 
-  
+  resources :categories
   devise_for :users
   resources :users
   resources :tags
 
-  root "users#index"
+  root "categories#index"
 
   # namespace :user do
   #     root :to => "users#show"
