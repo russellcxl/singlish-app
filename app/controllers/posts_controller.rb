@@ -10,7 +10,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
-     @post = Post.find(params[:id])
+    @post = Post.find(params[:id])
     @post['user_id'] = current_user.id
   
     @user = User.find(current_user.id)
@@ -32,7 +32,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
 
-    @post['user_id'] = current_user.idß
+    @post['user_id'] = current_user.id
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
