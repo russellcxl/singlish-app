@@ -6,9 +6,7 @@
 <ul>
 
 <% @users.each do |user| %>
-    <% if user.role != "admin" %>
     <li><%= user.username %> </li>
-    <% end %> 
 <% end %>
 
 </ul>

@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
 
   before_action :authenticate_user!
+  before_action :users_without_admin, only: [:index]
 
   def index
-    @users = User.all
   end
 
   def show
@@ -29,6 +29,7 @@ class UsersController < ApplicationController
 
   def users_without_admin
     @users = User.all
+    @users = @users.select { |x| x.role != "admin" }
   end
 
 end
