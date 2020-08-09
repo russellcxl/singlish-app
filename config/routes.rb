@@ -1,18 +1,11 @@
 Rails.application.routes.draw do
   resources :posts
-  # get 'users/index'
-  # get 'users/show'
-  # get 'users/new'
-  # get 'users/create'
-  # get 'users/edit'
-  # get 'users/update'
-  # get 'users/destroy'
 
-  
+  resources :categories
   devise_for :users
   resources :users
 
-  root "users#index"
+  root "categories#index"
 
   # namespace :user do
   #     root :to => "users#show"
