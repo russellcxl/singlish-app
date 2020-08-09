@@ -26,3 +26,34 @@
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
+
+<div class= "container">
+  <h5>Comments</h5>
+  <% @post.comments.each do |comment| %>                            
+
+    <div class="media text-muted pt-3 w-100">
+    <!-- comment -->
+    <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray w-75">
+      <strong class="d-block text-gray-dark"><%= comment.user.firstname %> @ <%= comment.created_at.in_time_zone('Singapore') %></strong>
+      <%= comment.comments %>
+    </p>
+    </div>
+  <% end %>
+
+  <div class="container pb-cmnt-container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 ml-3">
+            <div class="panel panel-info">
+                <div class="panel-body">
+                    <%= form_for [@post, @comment], html: {class: ""} do |f| %>
+                      <%= f.text_area :comments, placeholder:"Write your comment here!", class: "form-control" %>
+                      <%= f.submit "Comment", class: "btn btn-sm btn-primary mt-2 mb-5" %>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+

@@ -13,3 +13,18 @@ User.create! :username => "Admin", :firstname => "Jim", :lastname => "Carrey", :
 User.create! :username => "Hoho", :firstname => "Henry", :lastname => "Ho", :email => "henry@ho.com", :password => "qweqwe", :password_confirmation => "qweqwe"
 
 User.create! :username => "Sally123", :firstname => "Sally", :lastname => "Sim", :email => "sally@sim.com", :password => "qweqwe", :password_confirmation => "qweqwe"
+
+
+# Tag 
+
+Tag.create! :name => "Dialect"
+
+Tag.create! :name => "English"
+
+Tag.create! :name => "Mandarin"
+
+Tag.create! :name => "Malay"
+
+Tag.create! :name => "Tamil"
+
+Tag.create! :name => "Army Lingo"

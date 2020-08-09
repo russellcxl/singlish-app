@@ -12,15 +12,14 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @post['user_id'] = current_user.id
-  
+    @comment = Comment.new
     @user = User.find(current_user.id)
-   
+    @posts = @user.posts
   end
 
   # GET /posts/new
   def new
     @post = Post.new
-   
   end
 
   # GET /posts/1/edit
@@ -77,6 +76,6 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:word, :description, :example, :pronunciation, :meaning)
+      params.require(:post).permit(:word, :description, :example, :pronunciation, :meaning, tag_ids: [])
     end
 end
