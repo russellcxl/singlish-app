@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+
+
+
+    <% @posts.each do |post| %>
+
+       <%= post.word %>
+      
+     <%= link_to "show", post %>
+     
+       
+
+    <% end %>
+ 
+
+
+

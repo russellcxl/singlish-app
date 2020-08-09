@@ -1,13 +1,14 @@
 class UsersController < ApplicationController
 
   before_action :authenticate_user!
+  before_action :users_without_admin, only: [:index]
 
   def index
-    @users = User.all
   end
 
   def show
     @user = User.find(params[:id])
+    @posts = Post.all.select { |post| post.user_id == current_user.id } #selects only current user's posts
   end
 
   def new
@@ -29,6 +30,7 @@ class UsersController < ApplicationController
 
   def users_without_admin
     @users = User.all
+    @users = @users.select { |user| user.role != "admin" }
   end
 
 end
