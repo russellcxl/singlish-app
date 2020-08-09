@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  # get 'comments/index'
+  # get 'comments/show'
+  # get 'comments/new'
+  # get 'comments/create'
+  # get 'comments/edit'
+  # get 'comments/update'
+  # get 'comments/destroy'
   # get 'users/index'
   # get 'users/show'
   # get 'users/new'
@@ -10,6 +17,7 @@ Rails.application.routes.draw do
   
   devise_for :users
   resources :users
+  resources :comments
 
   root "users#index"
 
