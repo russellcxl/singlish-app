@@ -12,4 +12,6 @@ class User < ApplicationRecord
     self.role ||= :user
   end
 
+  has_many :comments
+  has_many  :posts
 end
