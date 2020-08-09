@@ -3,18 +3,39 @@
 /* PlayFair Display font weights: regular400/medium500/bold700/extrabold800 */
 
 body {
-     background-color: #e6e6e6;
-     background-size: 100%;
-     font-family: 'IBM Plex Sans', sans-serif;
-     color: black;
+    background-color: #FBF7F4;
+    background-size: 100%;
+    font-family: 'IBM Plex Sans', sans-serif;
+    color: black;
+    
 }
-
 
 .oneAlphabet {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
     font-size: 200px;
+    grid-template-columns: repeat(4, 50px);
+    grid-template-rows: auto;
+    grid-auto-flow: column;
+    column-gap: 100px;
+    row-gap: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* align-content: space-between; */
+    /* justify-items: center; */
 }
+
+/* view/categories/INDEX */
+/* unvisited link */
+a:link {
+    color: #6C9A8B;
+  }
+
+/* mouse over link */
+a:hover {
+    color: #EBC9C2;
+  }
 
 /* classes: Playfair Display Font */
 .playfairRegular {
