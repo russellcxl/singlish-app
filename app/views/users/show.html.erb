@@ -1,5 +1,34 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<p id="notice"><%= notice %></p>
 
-<h3>Username: <%= @user.username %></h3>
-<h3>Name: <%= @user.firstname %> <%= @user.lastname %></h3>
+<h1>Username</h1><p><%= @user.username %></p>
+<h1>Name</h1><p><%= @user.firstname %> <%= @user.lastname %></p>
+
+<h1>Posts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Word</th>
+      <th>Description</th>
+      <th>Example</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%= post.word %></td>
+        <td><%= post.description %></td>
+        <td><%= post.example %></td>
+        <td><%= link_to 'Show', post %></td>
+        <td><%= link_to 'Edit', edit_post_path(post) %></td>
+        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Post', new_post_path %>

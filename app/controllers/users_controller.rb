@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @posts = Post.all.select { |post| post.user_id == current_user.id } #selects only current user's posts
   end
 
   def new
@@ -29,7 +30,7 @@ class UsersController < ApplicationController
 
   def users_without_admin
     @users = User.all
-    @users = @users.select { |x| x.role != "admin" }
+    @users = @users.select { |user| user.role != "admin" }
   end
 
 end
