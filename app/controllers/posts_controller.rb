@@ -20,6 +20,10 @@ class PostsController < ApplicationController
     end
   end
 
+  def word_of_day
+    @post = Post.where(word_of_day: true)
+  end
+
   # search function; turns table col to downcase, matches query.downcase
   def search
     @posts = Post.where(

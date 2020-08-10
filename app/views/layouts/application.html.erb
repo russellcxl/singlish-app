@@ -27,6 +27,7 @@
       
       <%= link_to "Singlish", categories_path, class: "navbar-brand text-light" %>
 
+      <%# random word %>
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
           <%= link_to "Random word", post_path(Post.all.sample), class: "nav-link text-light" %>
