@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   # get 'users/edit'
   # get 'users/update'
   # get 'users/destroy'
+  get 'search', to: "posts#search"
 
   resources :categories
   devise_for :users
