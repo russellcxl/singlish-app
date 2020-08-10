@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-
+  before_action :nav_tags
   def index
     @posts = Post.all
   end
@@ -25,6 +25,8 @@ class CategoriesController < ApplicationController
 
   private
 
-
+  def nav_tags
+    @tags = Tag.all
+  end
 
 end

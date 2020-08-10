@@ -1,4 +1,5 @@
 class TagsController < ApplicationController
+  before_action :nav_tags
   def index
     @tags = Tag.all
   end
@@ -20,5 +21,11 @@ class TagsController < ApplicationController
   end
 
   def destroy
+  end
+
+  private 
+
+  def nav_tags
+    @tags = Tag.all
   end
 end
