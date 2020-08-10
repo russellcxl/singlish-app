@@ -14,6 +14,8 @@ class User < ApplicationRecord
   
   has_many :comments
   has_many  :posts
+
+  #profile pic
   has_one_attached :profile_pic
   after_commit :add_default_profile_pic, on: %i[create update]
 
