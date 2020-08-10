@@ -1,31 +1,39 @@
 <p id="notice"><%= notice %></p>
+<p>
+  <strong>word:</strong>
+  <%= @post.word %>
+</p>
 
-      <p>
-        <strong>word:</strong>
-        <%= @post.word %>
-      </p>
+<p>
+  <strong>word means:</strong>
+  <%= @post.meaning %>
+</p>
 
-      <p>
-        <strong>meaning:</strong>
-        <%= @post.meaning %>
-      </p>
+<p>
+  <strong>description:</strong>
+  <%= @post.description %>
+</p>
 
-      <p>
-        <strong>description:</strong>
-        <%= @post.description %>
-      </p>
+<p>
+  <strong>used in sentence:</strong>
+  <%= @post.example %>
+</p>
 
-      <p>
-        <strong>used in sentence:</strong>
-        <%= @post.example %>
-      </p>
-    
-      <p> By: <%= @post.user.username %>
-      </p>
-
+<p> By: <%= link_to @post.user.username, user_path(@post.user.id) %>
+</p>
 
 
-<%= link_to 'Edit', edit_post_path(@post) %>
+<p> Tags : <% @post.tags.each do |tag| %>
+
+      <td><%= link_to tag.name, tag_path(tag) %></td>
+  
+
+  <% end %> 
+</p>
+ 
+<% if current_user.username == @post.user.username %>
+  <p> <%= link_to 'Edit', edit_post_path(@post) %> </p>
+<% end %>
 
 <div class= "container">
   <h5>Comments</h5>
@@ -34,7 +42,7 @@
     <div class="media text-muted pt-3 w-100">
     <!-- comment -->
     <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray w-75">
-      <strong class="d-block text-gray-dark"><%= comment.user.firstname %> @ <%= comment.created_at.in_time_zone('Singapore') %></strong>
+      <strong class="d-block text-gray-dark"><%= comment.user.username %> @ <%= comment.created_at.in_time_zone('Singapore') %></strong>
       <%= comment.comments %>
     </p>
     </div>
