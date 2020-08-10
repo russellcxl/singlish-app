@@ -22,22 +22,42 @@
     <p class="alert alert-danger mb-0"><%= alert %></p>
     <% end %>
 
+    <%# navbar %>
     <nav class="navbar navbar-expand-lg navbar-light bg-dark">
       
       <%= link_to "Singlish", categories_path, class: "navbar-brand text-light" %>
+
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <%= link_to "Random word", post_path(Post.all.sample), class: "nav-link text-light" %>
+        </li>
+      </ul>
 
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <% if user_signed_in? %>
             <%= link_to current_user.username, user_path(current_user.id), class: "nav-link ml-auto text-light" %>
           <% end %> 
       </div>
-          <ul class="nav justify-content-end">
+
+      
+
+      <%# log in / log out buttons %>
+      <ul class="nav justify-content-end">
           <% if user_signed_in? %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class:"nav-link text-light" %>
           <% else %>
             <%= link_to  "Log in", new_user_session_path, class: "nav-link text-light" %>
           <% end %> 
-          </ul>
+      </ul>
+      
+      <%# search bar %>
+      <form action="/search" class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" name="query" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+
+      
+
     </nav>
 
     <%= yield %>

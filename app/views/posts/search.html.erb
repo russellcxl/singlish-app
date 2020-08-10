@@ -1,0 +1,12 @@
+<h1>Search results for: "<%= params[:query] %>"</h1>
+
+<ul>
+    <% if @posts[0] %>
+        <% @posts.each do |post| %>
+            <%= link_to post.word, post_path(post) %>
+        <% end %>
+    <% else %>
+        <em>Got nothing leh.</em>
+    <% end %>
+    
+</ul>

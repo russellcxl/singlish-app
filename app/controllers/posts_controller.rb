@@ -11,10 +11,22 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @post = Post.find(params[:id])
-    @post['user_id'] = current_user.id
-    @comment = Comment.new
-    @user = User.find(current_user.id)
-    @posts = @user.posts
+    if current_user
+      @comment = Comment.new
+      @user = User.find(current_user.id)
+      @posts = @user.posts
+    else 
+      redirect_to new_user_session_path
+    end
+  end
+
+  # search function; turns table col to downcase, matches query.downcase
+  def search
+    @posts = Post.where(
+      Post.arel_table[:word]
+      .lower
+      .matches("%#{params[:query].downcase}%")
+    )
   end
 
   # GET /posts/new
@@ -78,4 +90,5 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:word, :description, :example, :pronunciation, :meaning, tag_ids: [])
     end
+
 end
