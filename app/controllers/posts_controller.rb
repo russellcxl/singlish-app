@@ -11,7 +11,7 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @post = Post.find(params[:id])
-    @post['user_id'] = current_user.id
+    # @post['user_id'] = current_user.id
     @comment = Comment.new
     @user = User.find(current_user.id)
     @posts = @user.posts
