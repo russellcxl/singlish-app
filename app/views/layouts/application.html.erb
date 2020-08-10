@@ -34,6 +34,8 @@
           <ul class="nav justify-content-end">
           <% if user_signed_in? %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class:"nav-link text-light" %>
+          <% else %>
+            <%= link_to  "Log in", new_user_session_path, class: "nav-link text-light" %>
           <% end %> 
           </ul>
     </nav>
