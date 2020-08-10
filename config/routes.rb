@@ -1,9 +1,20 @@
 Rails.application.routes.draw do
-  resources :posts
+  resources :posts do 
+    resources :comments
+  end
+
+  # get 'users/index'
+  # get 'users/show'
+  # get 'users/new'
+  # get 'users/create'
+  # get 'users/edit'
+  # get 'users/update'
+  # get 'users/destroy'
 
   resources :categories
   devise_for :users
   resources :users
+  resources :tags
 
   root "categories#index"
 
