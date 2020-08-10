@@ -30,7 +30,10 @@
           <% if user_signed_in? %>
             
             <%= link_to current_user.username, user_path(current_user.id), class: "nav-link ml-auto text-light" %>
-            <%= image_tag (current_user.profile_pic), :style => "border: 2px solid black", width: 40, height: "auto" %>
+            
+              <%= image_tag (current_user.profile_pic), :style => "border: 2px solid white; border-radius: 50%;", width: 40, height: "auto" %>
+            
+            
           <% end %> 
       </div>
           <ul class="nav justify-content-end">
