@@ -1,18 +1,69 @@
 /* body hash syntax means styling to the body portion of the HTML file */
 /* IBM Plex Sans font weights: light300/regular400/medium500/bold700 */
+/* PlayFair Display font weights: regular400/medium500/bold700/extrabold800 */
 
 body {
-     background-color: #e6e6e6;
-     background-size: 100%;
-     font-family: 'IBM Plex Sans', sans-serif;
-     color: black;
+    background-color: #FFFFFF;
+    background-size: 100%;
+    font-family: 'IBM Plex Sans', sans-serif;
+    color: black;
+    
 }
-
 
 .oneAlphabet {
     font-family: 'Playfair Display', serif;
-    font-weight: 800;
+    font-weight: 700;
     font-size: 200px;
+    grid-template-columns: repeat(4, 50px);
+    grid-template-rows: auto;
+    grid-auto-flow: column;
+    column-gap: 100px;
+    row-gap: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* align-content: space-between; */
+    /* justify-items: center; */
+}
+
+/* VIEW/CATEGORIES/INDEX */
+/* unvisited link */
+a:link {
+    color: #9B6A6C;
+  }
+
+/* visited link */
+a:visited {
+    color: #9B6A6C;
+  }
+
+/* mouse over link */
+a:hover {
+    color: #E2B4BD;
+  }
+
+/* VIEW/POST/_FORM */
+.addNewWord {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 700;
+    font-size: 50px;
+    margin-left: 30px;
+}
+
+.perField {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 500;
+    font-size: 25px;
+    margin-bottom: 50px;
+    display: flex;
+    align-content: start;
+    
+}
+
+.createPost {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
 }
 
 /* classes: Playfair Display Font */

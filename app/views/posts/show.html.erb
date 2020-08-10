@@ -1,27 +1,28 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>word:</strong>
-  <%= @post.word %>
-</p>
+      <p>
+        <strong>word:</strong>
+        <%= @post.word %>
+      </p>
 
-<p>
-  <strong>meaning:</strong>
-  <%= @post.meaning %>
-</p>
+      <p>
+        <strong>meaning:</strong>
+        <%= @post.meaning %>
+      </p>
 
-<p>
-  <strong>description:</strong>
-  <%= @post.description %>
-</p>
+      <p>
+        <strong>description:</strong>
+        <%= @post.description %>
+      </p>
 
-<p>
-  <strong>used in sentence:</strong>
-  <%= @post.example %>
-</p>
+      <p>
+        <strong>used in sentence:</strong>
+        <%= @post.example %>
+      </p>
+    
+      <p> By: <%= @post.user.username %>
+      </p>
 
-<p> By: <%= @post.user.username %>
-</p>
 
 
 <%= link_to 'Edit', edit_post_path(@post) %>

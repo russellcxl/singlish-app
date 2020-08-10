@@ -11,30 +11,37 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :word %>
-    <%= form.text_area :word %>
+
+<div class="row mt-5">
+  <div class="col-sm-4 addNewWord">
+    <u>add <br> a new <br> word</u>
   </div>
 
-  <div class="field">
-    <%= form.label :meaning %>
-    <%= form.text_area :meaning %>
-  </div>
+  <div class="col-sm-6">
+    <div class=“perField”>
+      <%= form.label :word %>
+      <%= form.text_area :word %>
+    </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
+    <div class="perField">
+      <%= form.label :meaning %>
+      <%= form.text_area :meaning %>
+    </div>
 
-  <div class="field">
-    <%= form.label :example %>
-    <%= form.text_area :example %>
-  </div>
+    <div class="perField">
+      <%= form.label :description %>
+      <%= form.text_area :description %>
+    </div>
 
-  <div class=“field”>
-<%= form.label :pronunciation %> 
-<%= form.file_field :pronunciation %> 
-</div>
+    <div class="perField">
+      <%= form.label :example %>
+      <%= form.text_area :example %>
+    </div>
+
+    <div class=“perField”>
+      <%= form.label :pronunciation %> 
+      <%= form.file_field :pronunciation %> 
+    </div>
 
     <div>
         <%= collection_check_boxes(:post, :tag_ids, Tag.all, :id, :name) %>
@@ -43,4 +50,5 @@
   <div class="actions">
     <%= form.submit %>
   </div>
+</div>
 <% end %>
