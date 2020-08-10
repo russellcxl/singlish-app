@@ -11,7 +11,7 @@ class User < ApplicationRecord
   def set_default_role
     self.role ||= :user
   end
-
+  has_one_attached :profile_pic
   has_many :comments
   has_many  :posts
 end
