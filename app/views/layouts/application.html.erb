@@ -45,27 +45,27 @@
           <%= link_to "Random word", post_path(Post.all.sample), class: "nav-link text-light" %>
         </li>
       </ul>
-
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <% if user_signed_in? %>
-            
-            <%= link_to current_user.username, user_path(current_user.id), class: "nav-link ml-auto text-light" %>
-            
-            <% if current_user.profile_pic.attached? %>
-              <%= image_tag (current_user.profile_pic), :style => "border: 2px solid white; border-radius: 50%;", width: 40, height: "auto" %>
-            <% end %>
-            
-            
-          <% end %> 
       </div>
-
+      <% if user_signed_in? %>
+        <div class="nav-item dropdown">
+        <% if current_user.profile_pic.attached? %>
+          <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%= image_tag (current_user.profile_pic), :style => "border: 2px solid white; border-radius: 50%;", width: 40, height: "auto" %>
+          </a>
+        <% end %>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href= <%= user_path(current_user.id) %> >Profile</a>
+            <a class="dropdown-item" href="#">Favourites</a>
+            <a class="dropdown-item" href= <%= new_post_path%> >Add New Word</a>
+            <a class="dropdown-item"<%= link_to "Log out", destroy_user_session_path, method: :delete%></a>
+          </div>
+        </div>
+      <% end %> 
       
 
       <%# log in / log out buttons %>
       <ul class="nav justify-content-end">
-          <% if user_signed_in? %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class:"nav-link text-light" %>
-          <% else %>
+          <% if !user_signed_in? %>
             <%= link_to  "Log in", new_user_session_path, class: "nav-link text-light" %>
           <% end %> 
       </ul>
