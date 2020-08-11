@@ -10,6 +10,15 @@ body {
     
 }
 
+/* VIEWS/LAYOUT/APPLICATION.HTML */
+.navbarStyling {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    font-size: 20px;
+    color: #FFFFFF;
+}
+
+/* VIEW/CATEGORIES/INDEX */
 .oneAlphabet {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
@@ -26,7 +35,6 @@ body {
     /* justify-items: center; */
 }
 
-/* VIEW/CATEGORIES/INDEX */
 /* unvisited link */
 a:link {
     color: #9B6A6C;
@@ -42,11 +50,12 @@ a:hover {
     color: #E2B4BD;
   }
 
+
 /* VIEW/POST/_FORM */
 .addNewWord {
     font-family: 'IBM Plex Sans', sans-serif;
     font-weight: 700;
-    font-size: 50px;
+    font-size: 60px;
     margin-left: 30px;
 }
 
@@ -65,6 +74,7 @@ a:hover {
     font-weight: 500;
     font-size: 20px;
 }
+
 
 /* classes: Playfair Display Font */
 .playfairRegular {
