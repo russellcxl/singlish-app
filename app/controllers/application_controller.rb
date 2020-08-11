@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
     protected
 
     def configure_permitted_parameters
-        devise_parameter_sanitizer.permit(:sign_up, keys: [:firstname, :lastname, :username])
+        devise_parameter_sanitizer.permit(:sign_up, keys: [:firstname, :lastname, :username, :profile_pic])
     end
 
     # for redirecting to current page after user logins/logs out

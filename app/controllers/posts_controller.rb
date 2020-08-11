@@ -38,6 +38,30 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
+  def favourite
+    @post = Post.find(params[:id])
+   
+  end
+  def follow
+    # find user from id
+    @user = User.find(params[:id])
+
+    @current_user_found= User.find(current_user.id)
+    
+    if @current_user_found.following.include?(@user.id.to_s)
+     #if user is already following prompt error
+      redirect_to show_profile_path(@user.id), alert: "Already Following this user"
+    else
+      
+      @current_user_found.following << @user.id
+      if @current_user_found.save
+
+        redirect_to show_profile_path(@user.id), notice: "Now following user"
+      else
+          redirect_to show_profile_path(@user.id), notice: "couldnot follow user"
+      end
+    end
+  end
   # GET /posts/1/edit
   def edit
   end

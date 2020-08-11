@@ -36,7 +36,14 @@
 
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <% if user_signed_in? %>
+            
             <%= link_to current_user.username, user_path(current_user.id), class: "nav-link ml-auto text-light" %>
+            
+            <% if current_user.profile_pic.attached? %>
+              <%= image_tag (current_user.profile_pic), :style => "border: 2px solid white; border-radius: 50%;", width: 40, height: "auto" %>
+            <% end %>
+            
+            
           <% end %> 
       </div>
 
