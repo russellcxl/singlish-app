@@ -11,10 +11,26 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @post = Post.find(params[:id])
-    @post['user_id'] = current_user.id
-    @comment = Comment.new
-    @user = User.find(current_user.id)
-    @posts = @user.posts
+    if current_user
+      @comment = Comment.new
+      @user = User.find(current_user.id)
+      @posts = @user.posts
+    else 
+      redirect_to new_user_session_path
+    end
+  end
+
+  def word_of_day
+    @post = Post.where(word_of_day: true)
+  end
+
+  # search function; turns table col to downcase, matches query.downcase
+  def search
+    @posts = Post.where(
+      Post.arel_table[:word]
+      .lower
+      .matches("%#{params[:query].downcase}%")
+    )
   end
 
   # GET /posts/new
@@ -22,6 +38,30 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
+  def favourite
+    @post = Post.find(params[:id])
+   
+  end
+  def follow
+    # find user from id
+    @user = User.find(params[:id])
+
+    @current_user_found= User.find(current_user.id)
+    
+    if @current_user_found.following.include?(@user.id.to_s)
+     #if user is already following prompt error
+      redirect_to show_profile_path(@user.id), alert: "Already Following this user"
+    else
+      
+      @current_user_found.following << @user.id
+      if @current_user_found.save
+
+        redirect_to show_profile_path(@user.id), notice: "Now following user"
+      else
+          redirect_to show_profile_path(@user.id), notice: "couldnot follow user"
+      end
+    end
+  end
   # GET /posts/1/edit
   def edit
   end

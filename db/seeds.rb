@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # Admin
-User.create! :username => "Admin", :firstname => "Jim", :lastname => "Carrey", :email => "admin@admin.com", :password => "qweqwe", :password_confirmation => "qweqwe", :role => 1
+User.create! :username => "Admin", :firstname => "Jim", :lastname => "Carrey", :email => "admin@admin.com", :password => "qweqwe", :password_confirmation => "qweqwe", :role => 1, :profile_pic => "../app/assets/images/avatar-youtube-cat-cute-dog-thumbnail.jpg"
 
 # User
 User.create! :username => "Hoho", :firstname => "Henry", :lastname => "Ho", :email => "henry@ho.com", :password => "qweqwe", :password_confirmation => "qweqwe"
