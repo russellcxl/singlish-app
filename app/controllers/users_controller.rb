@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-
   before_action :authenticate_user!
   before_action :users_without_admin, only: [:index]
+  before_action :nav_tags
 
   def index
   end
@@ -31,6 +31,10 @@ class UsersController < ApplicationController
   def users_without_admin
     @users = User.all
     @users = @users.select { |user| user.role != "admin" }
+  end
+
+  def nav_tags
+    @tags = Tag.all
   end
 
 end

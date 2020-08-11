@@ -28,3 +28,6 @@ Tag.create! :name => "Malay"
 Tag.create! :name => "Tamil"
 
 Tag.create! :name => "Army Lingo"
+
+
+Post.create! :word => "Singlish", :description => "Colloquial Singaporean English, better known as Singlish, is an English-based creole language spoken in Singapore. The term Singlish is a blend of Singaporean slang and English and was first recorded in 1973.", :meaning => "Singlish means Singlish lor", :user_id =>"1"
