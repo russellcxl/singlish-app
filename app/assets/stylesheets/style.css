@@ -10,6 +10,15 @@ body {
     
 }
 
+/* VIEWS/LAYOUT/APPLICATION.HTML */
+.navbarStyling {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    font-size: 20px;
+    color: #FFFFFF;
+}
+
+/* VIEW/CATEGORIES/INDEX */
 .oneAlphabet {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
@@ -26,7 +35,6 @@ body {
     /* justify-items: center; */
 }
 
-/* VIEW/CATEGORIES/INDEX */
 /* unvisited link */
 a:link {
     color: #9B6A6C;
@@ -42,11 +50,12 @@ a:hover {
     color: #E2B4BD;
   }
 
+
 /* VIEW/POST/_FORM */
 .addNewWord {
     font-family: 'IBM Plex Sans', sans-serif;
     font-weight: 700;
-    font-size: 50px;
+    font-size: 60px;
     margin-left: 30px;
 }
 
@@ -65,6 +74,7 @@ a:hover {
     font-weight: 500;
     font-size: 20px;
 }
+
 
 /* classes: Playfair Display Font */
 .playfairRegular {
@@ -85,4 +95,26 @@ a:hover {
 .playfairExtraBold {
     font-family: 'Playfair Display', serif;
     font-weight: 800;
+}
+
+
+/* Navbar */
+.search-bar {
+    border: none !important;
+    border-bottom: solid 1px white !important;
+    border-radius: none !important;
+    background: #fff;
+    box-sizing: border-box !important;
+    -webkit-transition: all .3s linear;
+    transition: all .3s linear;
+    color: white!;
+    font-weight: 400;
+    -webkit-appearance: none;
+}
+
+.search-bar:focus {
+    border-bottom: solid 1px #9B6A6C !important;
+    outline: 0;
+    box-shadow: 0 2px 6px -8px rgba(182, 157, 230, 0.45);
+    color: white !important;
 }
