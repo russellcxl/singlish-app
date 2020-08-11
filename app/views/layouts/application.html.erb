@@ -46,6 +46,49 @@
         </li>
       </ul>
       </div>
+      
+      <%# search bar %>
+      <form action="/search" class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" name="query" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+
+      
+
+    </nav>
+    <div class="navbarStyling">
+      <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+        
+        <%#= link_to "Singlish", categories_path, class: "navbar-brand text-light" %> 
+
+        <%# Logo %>
+        <%= link_to categories_path do %> 
+        <%= image_tag ("logo_white.png"), width: 100, height: "auto", class: "mr-5" %> 
+        <% end %>
+
+
+        <%# random word %>
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <%= link_to "Word of the day", post_path(Post.all.sample), class: "nav-link text-light" %>
+          </li>
+        </ul>
+
+
+        <%# tags %>
+        <div class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-light mr-3" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Tags
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <% Tag.all.each do |tag| %>
+              <a class="dropdown-item" href= "<%= tag_path(tag) %>" > <%= tag.name %></a>
+            <% end %>
+          </div>
+        </div>
+
+        
+      <%# log in / log out buttons %>
       <% if user_signed_in? %>
         <div class="nav-item dropdown">
         <% if current_user.profile_pic.attached? %>
@@ -63,22 +106,17 @@
       <% end %> 
       
 
-      <%# log in / log out buttons %>
       <ul class="nav justify-content-end">
           <% if !user_signed_in? %>
             <%= link_to  "Log in", new_user_session_path, class: "nav-link text-light" %>
           <% end %> 
       </ul>
-      
       <%# search bar %>
-      <form action="/search" class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" name="query" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
+        <form action="/search" class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" name="query" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0 mr-3" type="submit">Search</button>
+        </form>
 
-      
-
-    </nav>
 
     <%= yield %>
   </body>
