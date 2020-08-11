@@ -5,6 +5,11 @@
 </p>
 
 <p>
+  <strong>pronunciation:</strong>
+  <%=audio_tag (url_for(@post.pronunciation)),controls:"" %>
+</p>
+
+<p>
   <strong>word means:</strong>
   <%= @post.meaning %>
 </p>
