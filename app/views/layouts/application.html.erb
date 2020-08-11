@@ -31,10 +31,8 @@
             
             <%= link_to current_user.username, user_path(current_user.id), class: "nav-link ml-auto text-light" %>
             
-            <% if current_user.profile_pic %>
-              <%#= p current_user %>
-              <%= p current_user.profile_pic %>
-              <%#= image_tag (current_user.profile_pic), :style => "border: 2px solid white; border-radius: 50%;", width: 40, height: "auto" %>
+            <% if current_user.profile_pic.attached? %>
+              <%= image_tag (current_user.profile_pic), :style => "border: 2px solid white; border-radius: 50%;", width: 40, height: "auto" %>
             <% end %>
             
             

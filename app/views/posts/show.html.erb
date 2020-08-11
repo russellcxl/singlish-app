@@ -43,7 +43,9 @@
     <!-- comment -->
     <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray w-75">
       
-      <%= image_tag (comment.user.profile_pic), :style => "border: 2px solid black", width: 50, height: "auto" %>
+      <% if current_user.profile_pic.attached? %>
+        <%= image_tag (comment.user.profile_pic), :style => "border: 2px solid black", width: 50, height: "auto" %>
+      <% end %>
       
       <strong class="d-block text-gray-dark"><%= comment.user.username %> @ <%= comment.created_at.in_time_zone('Singapore') %></strong>
       <%= comment.comments %>
