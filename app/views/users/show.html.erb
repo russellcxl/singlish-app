@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
-
+<% if @user.profile_pic.attached? %>
+  <%= image_tag @user.profile_pic, :style => "border: 5px solid black", width: 300, height: "auto" %>
+<% end %>
 <h1>Username</h1><p><%= @user.username %></p>
 <h1>Name</h1><p><%= @user.firstname %> <%= @user.lastname %></p>
 
