@@ -6,6 +6,7 @@ class TagsController < ApplicationController
 
   def show
     @tag = Tag.find(params[:id])
+    @posts = @tag.posts.order("lower(word) ASC")
   end
 
   def new
