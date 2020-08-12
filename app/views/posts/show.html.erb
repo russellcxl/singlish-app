@@ -33,9 +33,22 @@
     </p>
 
 
+
+    <%= form_for @post, url: new_favourite_word_path(@post.id) do |f| %>
+      <%= f.submit "favourite this word", class: "btn btn-primary" %>
+    <% end %>
+
+
+
+
+
+
+
+
     <p> Tags : <% @post.tags.each do |tag| %>
 
           <td><%= link_to tag.name, tag_path(tag) %></td>
+          
       
 
       <% end %> 
