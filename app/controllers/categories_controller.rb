@@ -5,7 +5,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @posts = Post.all.select { |post| post.word[0].upcase === params[:id].upcase } # selects only posts start with letter in URL query
+    @posts = Post.all.order("lower(word) ASC").select { |post| post.word[0].upcase === params[:id].upcase } # selects only posts start with letter in URL query
   end
 
   def new

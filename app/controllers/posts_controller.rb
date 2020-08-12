@@ -11,6 +11,7 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @post = Post.find(params[:id])
+
     if current_user
       @comment = Comment.new
       @user = User.find(current_user.id)
@@ -20,13 +21,48 @@ class PostsController < ApplicationController
     end
   end
 
+  def favourite
+  # find post from id
+    @post = Post.find(params[:id])
+    @current_user_found= User.find(current_user.id)
+    
+    if @current_user_found.favourite_words.include?(@post.id.to_s)
+     #if user has already favourited prompt error
+      redirect_to post_path(@post), alert: "Already favourited this word"
+    else
+      
+      @current_user_found.favourite_words << @post.id
+      if @current_user_found.save
+
+        redirect_to post_path(@post), notice: "You favourited this word"
+      else
+          redirect_to post_path(@post), notice: "Try again"
+      end
+    end
+
+    
+    # if @current_user_found.favourite_words.include?(@post.id.to_s)
+    #  #if user has already favourited prompt error
+    #   redirect_to post_path(@post.id), alert: "Already favourited this word"
+    # else
+      
+    #   @current_user_found.favourite_words << @post.id
+    #   if @current_user_found.save
+
+    #     redirect_to post_path(@post.id), notice: "You favourited this word"
+    #   else
+    #       redirect_to post_path(@post.id), notice: "Try again"
+    #   end
+    # end
+  end
+
   def word_of_day
     @post = Post.where(word_of_day: true)
   end
 
   # search function; turns table col to downcase, matches query.downcase
   def search
-    @posts = Post.where(
+    @posts = Post.order("lower(word) ASC").where(
       Post.arel_table[:word]
       .lower
       .matches("%#{params[:query].downcase}%")
@@ -38,10 +74,7 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
-  def favourite
-    @post = Post.find(params[:id])
-   
-  end
+
   def follow
     # find user from id
     @user = User.find(params[:id])

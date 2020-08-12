@@ -8,6 +8,7 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'style.css' %>    
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,800;1,400;1,500;1,700;1,800&display=swap" rel="stylesheet">
 
@@ -35,21 +36,21 @@
 
         <%# search bar %>
         <form action="/search" class="form-inline my-2 my-lg-0 mr-3">
-          <input class="search-bar bg-dark form-control mr-sm-2" name="query" type="search" placeholder="Search" aria-label="Search" style="border-radius: 0;">
+          <input class="clear search-bar bg-dark form-control mr-sm-2" name="query" type="search" placeholder="Search" aria-label="Search" style="border-radius: 0;">
         </form>
 
 
         <%# random word %>
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <%= link_to "Random Word", post_path(Post.all.sample), class: "nav-link text-light" %>
-          </li>
-        </ul>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarText">
+          <span class="navbar-text">
+              <%= link_to "Random Word", post_path(Post.all.sample), class: "nav-link text-light" %>
+          </span>
+        </div>
 
 
         <%# tags %>
         <div class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle text-light mr-3" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Tags
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -61,29 +62,29 @@
 
         
       <%# log in / log out buttons %>
-      <% if user_signed_in? %>
-        <div class="nav-item dropdown">
-        <% if current_user.profile_pic.attached? %>
-          <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= image_tag (current_user.profile_pic), :style => "border: 2px solid white; border-radius: 50%;", width: 40, height: "auto" %>
-          </a>
-        <% end %>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href= <%= user_path(current_user.id) %> >Profile</a>
-            <a class="dropdown-item" href="#">Favourites</a>
-            <a class="dropdown-item" href= <%= new_post_path%> >Add New Word</a>
-            <a class="dropdown-item"<%= link_to "Log out", destroy_user_session_path, method: :delete%></a>
-          </div>
-        </div>
-      <% end %> 
+          <% if user_signed_in? %>
+            <div class="nav-item dropdown">
+            <% if current_user.profile_pic.attached? %>
+              <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <%= image_tag (current_user.profile_pic), :style => "border: 2px solid white; border-radius: 50%;", width: 40, height: "auto" %>
+              </a>
+            <% end %>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href= <%= user_path(current_user.id) %> >Profile</a>
+                <a class="dropdown-item" href="#">Favourites</a>
+                <a class="dropdown-item" href= <%= new_post_path%> >Add New Word</a>
+                <a class="dropdown-item"<%= link_to "Log out", destroy_user_session_path, method: :delete%></a>
+              </div>
+            </div>
+          <% end %> 
       
 
-      <ul class="nav justify-content-end">
-          <% if !user_signed_in? %>
-            <%= link_to  "Log in", new_user_session_path, class: "nav-link text-light" %>
-          <% end %> 
-      </ul>
-    </div>
+        <ul class="nav justify-content-end">
+            <% if !user_signed_in? %>
+              <%= link_to  "Log in", new_user_session_path, class: "nav-link text-light" %>
+            <% end %> 
+        </ul>
+      </div>
 
     <%= yield %>
   </body>

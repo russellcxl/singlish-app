@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  patch "/posts/:id/favourite", to: "posts#favourite", as: :new_favourite_word
+
   resources :posts do 
     resources :comments
   end
@@ -16,6 +19,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users
   resources :tags
+ 
 
   root "categories#index"
 

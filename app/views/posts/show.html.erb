@@ -8,6 +8,11 @@
     <div class="col-3 addNewWord">
       <p><u><%= @post.word %></u></p>
       <br><p class="commentFont"> By: <%= link_to @post.user.username, user_path(@post.user.id) %></p> 
+      
+      <br><%= form_for @post, url: new_favourite_word_path(@post.id) do |f| %>
+          <%= f.submit "favourite this word", class: "btn btn-primary" %>
+          <% end %>
+
       <br> <% if current_user.username == @post.user.username %>
             <p class="commentFont"> <%= link_to 'Edit', edit_post_path(@post) %> </p>
           <% end %>
@@ -25,7 +30,7 @@
             <%= @post.meaning %>
           </div>
         </div>
-      
+    
         <%# pronunciation %>
         <div class="row">
           <div class="col-3 perFieldFont">
