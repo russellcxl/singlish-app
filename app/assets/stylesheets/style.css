@@ -59,14 +59,26 @@ a:hover {
     margin-left: 30px;
 }
 
-.perField {
-    font-family: 'IBM Plex Sans', sans-serif;
+.perFieldFont {
+    font-family: 'IBM Plex Sans', sans-serif; 
     font-weight: 500;
     font-size: 25px;
-    margin-bottom: 50px;
+    /* align-self: flex-end; */
+    /* align-items: right; */
+    
+}
+
+.perFieldAlignRight {
+    justify-content: flex-end;
+}
+
+.perField {
+    font-family: 'IBM Plex Sans', sans-serif; 
+    font-weight: 500;
+    font-size: 14px;
+    /* margin-bottom: 50px; */
     display: flex;
     align-content: start;
-    
 }
 
 .createPost {
@@ -95,6 +107,27 @@ a:hover {
 .playfairExtraBold {
     font-family: 'Playfair Display', serif;
     font-weight: 800;
+}
+
+/* classes: IBM Plex Sans Font */
+.ibmLight {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 300;
+}
+
+.ibmReg {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 400;
+}
+
+.ibmMedium {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 500;
+}
+
+.ibmBold {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 700;
 }
 
 

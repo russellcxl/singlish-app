@@ -7,9 +7,9 @@
 
     <div class="col-3 addNewWord">
       <p><u><%= @post.word %></u></p>
-      <br><p> By: <%= link_to @post.user.username, user_path(@post.user.id) %></p> 
+      <br><p class="commentFont"> By: <%= link_to @post.user.username, user_path(@post.user.id) %></p> 
       <br> <% if current_user.username == @post.user.username %>
-            <p> <%= link_to 'Edit', edit_post_path(@post) %> </p>
+            <p class="commentFont"> <%= link_to 'Edit', edit_post_path(@post) %> </p>
           <% end %>
     </div>
 
@@ -17,8 +17,8 @@
       
         <%# means %>
         <div class="row">
-          <div class="col-3">
-            <p><strong>means:</strong></p>
+          <div class="col-3 perFieldFont">
+            <p>means:</p>
           </div>
 
           <div class="col-9">
@@ -28,18 +28,23 @@
       
         <%# pronunciation %>
         <div class="row">
-          <div class="col-3">
-            <p>
+          <div class="col-3 perFieldFont">
+            <p>sound:
               <% if @post.pronunciation.attached? %>
                 <%=audio_tag (url_for(@post.pronunciation)),controls:"" %>
               <% end %>
             </p>
           </div>
+          
+          <%# to add spacing %>
+          <div class="col-9">
+
+          </div>
         </div>
 
         <%# description, hide title, display description %>
         <div class="row">
-          <div class="col-3">
+          <div class="col-3 perFieldFont">
 
           </div>
 
@@ -50,8 +55,8 @@
 
         <%# example %>
         <div class="row">
-          <div class="col-3">
-            <p><strong>used in sentence:</strong></p>
+          <div class="col-3 perFieldFont">
+            <p>used in sentence:</p>
           </div>
           
           <div class="col-9">
@@ -61,7 +66,7 @@
 
         <%# tags %>
         <div class="row">
-          <div class="col-3">
+          <div class="col-3 perFieldFont">
           <p>Tags:</p>
           </div>
 
@@ -76,12 +81,11 @@
         <%# comment %>
         <div class="row">
           <div class="col-12">         
-            <p>Comments</p>
+            <p class="commentFont">Comments</p>
+
             <% @post.comments.each do |comment| %>                            
 
               <div class="media text-muted pt-3 w-100">
-
-                <!-- comment -->
                 <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray w-75">
                     
                   <% if current_user.profile_pic.attached? %>
