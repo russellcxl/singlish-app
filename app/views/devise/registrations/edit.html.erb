@@ -1,49 +1,64 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<div class="main-container mx-5 mt-5">
+  <div class="row">
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%# EDIT USER column %>
+    <div class="col-3 d-flex justify-content-center">
+      <p class="profile-posts" style="font-size: 50px;"><u>EDIT USER</u> </p>
+    </div>
+
+    <%# input fields %>
+    <div class="col-8">
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">@</span>
+        </div>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Email" %>
+      </div>
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
+
+      <div class="input-group mb-3">
+        <%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "New password (leave blank if you don't want to change it)" %>
+        <% if @minimum_password_length %>
+            <div class="input-group-append">
+              <span class="input-group-text" id="basic-addon1"><%= @minimum_password_length %> characters min.</span>
+            </div>
+        <% end %>
+      </div>
+
+      <div class="input-group mb-3">
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder: "Confirm new password" %>
+      </div>
+
+      <div class="input-group mb-3">
+        <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control", placeholder: "Current password" %>
+      </div>
+
+      <div class="input-group mb-3">
+        <%= f.file_field :profile_pic, class: "form-control", placeholder: "Profile picture" %>
+        <%# <div class="input-group-append">
+          <span class="input-group-text" id="inputGroupFileAddon02">Upload / Update</span>
+        </div> %>
+      </div>
+
+      <div class="actions">
+          <%= f.submit "Update", class: "btn btn-primary" %>
+      </div>
+      <% end %>
+
+      <span>
+        <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger" %>
+      </span>
+
+
   </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-   
-  <div class="field">
-    <%= f.label :profile_pic %>
-    <%= f.file_field :profile_pic %>
-  </div>
+</div>
 
 
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
