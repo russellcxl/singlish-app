@@ -24,7 +24,7 @@
       <%# box for user stats %>
       <ul class="list-group list-group-vertical mt-2">
         <li class="list-group-item">Total posts: <%= Post.where(user_id: current_user.id).size %></li>
-        <li class="list-group-item">Favourited: </li>
+        <li class="list-group-item">Favourites: </li>
         <li class="list-group-item">Joined: <%= current_user.created_at.strftime("%d-%m-%Y") %></li>
       </ul>
 
@@ -32,8 +32,8 @@
 
 
     <%# POSTS column %>
-    <div class="col-sm-2 mt-5 d-flex justify-content-end">
-      <p class="oneAlphabet" style="font-size: 50px;">POSTS: </p>
+    <div class="col-sm-2 mt-5 d-flex justify-content-center">
+      <p class="profile-posts" style="font-size: 50px;"><u>POSTS</u> </p>
     </div>
 
     <%# posts column %>

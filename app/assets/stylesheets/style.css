@@ -137,7 +137,7 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .profile-posts {
-    font-family: 'Playfair Display', serif;
+    font-family: 'IBM Plex Sans', serif;
     font-weight: 700;
     font-size: 50px;
     column-gap: 100px;
