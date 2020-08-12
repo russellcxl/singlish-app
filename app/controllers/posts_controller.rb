@@ -26,7 +26,7 @@ class PostsController < ApplicationController
 
   # search function; turns table col to downcase, matches query.downcase
   def search
-    @posts = Post.where(
+    @posts = Post.order("lower(word) ASC").where(
       Post.arel_table[:word]
       .lower
       .matches("%#{params[:query].downcase}%")

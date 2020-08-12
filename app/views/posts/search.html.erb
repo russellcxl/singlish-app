@@ -1,12 +1,13 @@
-<h1>Search results for: "<%= params[:query] %>"</h1>
+<h1>Search results for: "<%= params[:query] %>"</h1>    
 
-<ul>
+<div class="row mt-5 ml-1">
     <% if @posts[0] %>
         <% @posts.each do |post| %>
+        <div class="col-4 wordsByAlphabet mb-5">               
             <%= link_to post.word, post_path(post) %>
-        <% end %>
+        </div>
+    <% end %>
     <% else %>
         <em>Got nothing leh.</em>
     <% end %>
-    
-</ul>
+</div>

@@ -1,8 +1,17 @@
 <h1>Categories#show</h1>
 
-<ul>
-    <% @posts.each do |post| %>
-        <li><%= link_to post.word, post_path(post) %></li>
-    <% end %>
-</ul>
+
+<div class="row mt-5">
+    <div class="col-3 oneAlphabet" style="color: #9B6A6C"><%= params[:id].upcase %></div>
+    <div class="col-9">
+        <div class="row">
+            <% @posts.each do |post| %>
+                <div class="col-4 wordsByAlphabet mb-5">
+                    <%= link_to post.word, post_path(post) %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+    </div>
+</div>
 

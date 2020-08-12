@@ -35,6 +35,58 @@ body {
     /* justify-items: center; */
 }
 
+/* VIEW/CATEGORIES/SHOW */
+.wordsByAlphabet {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 300;
+    font-size: 50px;
+    grid-template-columns: repeat(4, 50px);
+    grid-template-rows: auto;
+    grid-auto-flow: column;
+    column-gap: 20px;
+    row-gap: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    /* align-content: space-between; */
+    /* justify-items: center; */
+}
+
+/* TAGS/INDEX */
+.tagsWord {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 50px;
+    grid-template-columns: repeat(4, 50px);
+    grid-template-rows: auto;
+    grid-auto-flow: column;
+    column-gap: 100px;
+    row-gap: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* align-content: space-between; */
+    /* justify-items: center; */
+}
+
+/* TAGS/SHOW */
+.tagsShow {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 50px;
+    grid-template-columns: repeat(4, 50px);
+    grid-template-rows: auto;
+    grid-auto-flow: column;
+    column-gap: 100px;
+    row-gap: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* align-content: space-between; */
+    /* justify-items: center; */
+}
+
+
+
 /* unvisited link */
 a:link {
     color: #9B6A6C;

@@ -1,10 +1,13 @@
-<h1><%= @tag.name %>#show</h1>
-<p>Find me in app/views/tags/show.html.erb</p>
-
-<% @tag.posts.each do |tag| %>
-
-<ul>
-    <li><%= link_to tag.word %></li>
-</ul>
-
-<% end %>
+<div class="row mt-5">
+    <div class="col-3 tagsShow" style="color: #9B6A6C"><%= @tag.name %> :</div>
+    <div class="col-9">
+        <div class="row">
+            <% @posts.each do |tag| %>
+                <div class="col-4 wordsByAlphabet mb-5" >
+                    <%= link_to tag.word, post_path(tag.id) %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+    </div>
+</div>
