@@ -16,8 +16,6 @@ class PostsController < ApplicationController
       @comment = Comment.new
       @user = User.find(current_user.id)
       @posts = @user.posts
-    else 
-      redirect_to new_user_session_path
     end
   end
 

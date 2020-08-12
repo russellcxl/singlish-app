@@ -54,7 +54,7 @@
       <% end %> 
     </p>
   
-    <% if current_user.username == @post.user.username %>
+    <% if current_user && current_user.username == @post.user.username %>
       <p> <%= link_to 'Edit', edit_post_path(@post) %> </p>
     <% end %>
 
@@ -67,7 +67,7 @@
           <!-- comment -->
           <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray w-75">
             
-            <% if current_user.profile_pic.attached? %>
+            <% if current_user && current_user.profile_pic.attached? %>
               <%= image_tag (comment.user.profile_pic), :style => "border: 2px solid black", width: 50, height: "auto" %>
             <% end %>
             
@@ -82,10 +82,13 @@
             <div class="col-md-6 col-md-offset-3">
                 <div class="panel panel-info">
                     <div class="panel-body">
+                      <% if current_user %>
                         <%= form_for [@post, @comment], html: {class: ""} do |f| %>
                           <%= f.text_area :comments, placeholder:"Write your comment here!", class: "form-control" %>
                           <%= f.submit "Comment", class: "btn btn-sm btn-primary mt-2 mb-5" %>
                         <% end %>
+                      <% end %>
+                        
                     </div>
                 </div>
             </div>
