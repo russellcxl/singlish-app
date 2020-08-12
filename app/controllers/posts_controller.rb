@@ -20,6 +20,27 @@ class PostsController < ApplicationController
     end
   end
 
+  def favourite_word
+  # find post from id
+    @post = Post.find(params[:id])
+
+    @current_user_found= User.find(current_user.id)
+    
+    if @current_user_found.favourite_words.include?(@post.id.to_s)
+     #if user has already favourited prompt error
+      redirect_to post_path(@post.id), alert: "Already favourited this word"
+    else
+      
+      @current_user_found.favourite_words << @post.id
+      if @current_user_found.save
+
+        redirect_to post_path(@post.id), notice: "You favourited this word"
+      else
+          redirect_to post_path(@post.id), notice: "Try again"
+      end
+    end
+  end
+
   def word_of_day
     @post = Post.where(word_of_day: true)
   end

@@ -32,10 +32,17 @@
     <p> By: <%= link_to @post.user.username, user_path(@post.user.id) %>
     </p>
 
+<%= link_to "fav", new_favourite_word_path(@post.id), method: :post %>
+   <%= form_for @post, url: new_favourite_word_path(@post.id) do |f| %>
+            <%= f.hidden_field :id %>
+            <%= f.submit "favourite", class: "btn btn-primary" %>
+        <% end %>
+
 
     <p> Tags : <% @post.tags.each do |tag| %>
 
           <td><%= link_to tag.name, tag_path(tag) %></td>
+          
       
 
       <% end %> 
