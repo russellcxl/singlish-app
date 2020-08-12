@@ -129,7 +129,7 @@ input[type="search"]::-webkit-search-results-decoration {
 
 /* USERS#SHOW */
 .new-post-icon {
-    transition: 0.5s ease;
+    transition: transform 0.5s ease;
 }
 
 .new-post-icon:hover {
@@ -145,7 +145,7 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .profile-posts-add {
-    opacity: 0.3;
+    opacity: 0.2;
     transition: 0.5s ease-in-out;
 }
 
