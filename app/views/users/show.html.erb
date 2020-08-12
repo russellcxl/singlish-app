@@ -34,8 +34,8 @@
 
       <div class="row"> 
         <%# POSTS column %>
-        <div class="col-3 mt-5 d-flex justify-content-center">
-          <p class="profile-posts" style="font-size: 50px;"><u>POSTS</u> </p>
+        <div class="col-3 mt-5 d-flex justify-content-end">
+          <p class="ibmMedium" style="font-size: 40px;"><u>POSTS</u></p>
         </div>
 
         <%# posts column %>
@@ -54,6 +54,24 @@
         </div>
       </div>
         
+
+      <%# favourites %>
+      <div class="row"> 
+         <%# FAV column %>
+        <div class="col-3 mt-5 d-flex justify-content-end">
+          <p class="ibmMedium" style="font-size: 40px;"><u>FAVOURITES</u> </p>
+        </div>
+
+        <div class="col-9 mt-5 pl-3">
+          <div class="posts-container" style="display: grid; grid-template-columns: repeat(3, 1fr);">
+
+            <% current_user.favourite_words.each do |word| %>
+              <%= link_to Post.find(word).word.downcase, post_path(word), class: "profile-posts" %>
+            <% end %>
+          </div>
+        </div>
+
+      </div>
     </div>
 
 
