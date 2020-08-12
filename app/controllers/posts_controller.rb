@@ -20,7 +20,7 @@ class PostsController < ApplicationController
     end
   end
 
-  def favourite_word
+  def favourite
   # find post from id
     @post = Post.find(params[:id])
 
@@ -28,15 +28,15 @@ class PostsController < ApplicationController
     
     if @current_user_found.favourite_words.include?(@post.id.to_s)
      #if user has already favourited prompt error
-      redirect_to post_path(@post.id), alert: "Already favourited this word"
+      redirect_to post_path(@post), alert: "Already favourited this word"
     else
       
       @current_user_found.favourite_words << @post.id
       if @current_user_found.save
 
-        redirect_to post_path(@post.id), notice: "You favourited this word"
+        redirect_to post_path(@post), notice: "You favourited this word"
       else
-          redirect_to post_path(@post.id), notice: "Try again"
+          redirect_to post_path(@post), notice: "Try again"
       end
     end
   end
@@ -59,10 +59,7 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
-  def favourite
-    @post = Post.find(params[:id])
-   
-  end
+
   def follow
     # find user from id
     @user = User.find(params[:id])
