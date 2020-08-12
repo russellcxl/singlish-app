@@ -1,22 +1,27 @@
 <p id="notice"><%= notice %></p>
 
+
+
 <div class="row mt-5">
   <div class="col-sm-3 addNewWord">
     <p>  
       <u><%= @post.word %></u>
     </p>
+    
   </div>
 
   
+
   <div class="col-sm-7">
     <p>
-      <strong>word means:</strong>
+      <strong>means:</strong>
       <%= @post.meaning %>
     </p>
 
     <p>
-      <strong>description:</strong>
-      <%= @post.description %>
+      <% if @post.pronunciation.attached? %>
+        <%=audio_tag (url_for(@post.pronunciation)),controls:"" %>
+      <% end %>
     </p>
 
     <p>
