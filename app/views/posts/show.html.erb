@@ -34,14 +34,9 @@
 
 
 
-
-
-  <%#= link_to "FAVOURITE WORD", new_favourite_word_path(@post.id), method: :put %>
-
-
-  <%= form_for @post, url: new_favourite_word_path(@post.id) do |f| %>
-            <%= f.submit "favourite", class: "btn btn-primary" %>
-  <% end %>
+    <%= form_for @post, url: new_favourite_word_path(@post.id) do |f| %>
+      <%= f.submit "favourite this word", class: "btn btn-primary" %>
+    <% end %>
 
 
 
