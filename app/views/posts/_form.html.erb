@@ -19,10 +19,10 @@
     </div>
 
   
-    <div class="col-8">
+    <div class="col-8 mt-4">
 
       <div class="row mb-4">
-        <div class="col-3">
+        <div class="col-3 text-right">
           <div>
             <%= form.label :word, class: "perFieldFont" %>
           </div>
@@ -30,76 +30,83 @@
 
         <div class="col-9">
           <div class="perField">
-            <%= form.text_area :word %>
+            <%= form.text_area :word, cols: "70" %>
           </div>
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-6">
-          <div class="perFieldFont">
+      <div class="row mb-4">
+        <div class="col-3 text-right">
+          <div>
             <%= form.label :meaning, class: "perFieldFont" %>
           </div>
         </div>
 
-        <div class="col-6">
+        <div class="col-9">
           <div class="perField">
-            <%= form.text_area :meaning %>
+            <%= form.text_area :meaning, cols: "70" %>
           </div>
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-6">
-          <div class="perFieldFont">
+      <div class="row mb-4">
+        <div class="col-3 text-right">
+          <div>
             <%= form.label :description, class: "perFieldFont" %>
           </div>
         </div>
 
-        <div class="col-6">
+        <div class="col-9">
           <div class="perField">
-          <%= form.text_area :description %>
+          <%= form.text_area :description, cols: "70" %>
           </div>
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-6">
-          <div class="perFieldFont">
+      <div class="row mb-4">
+        <div class="col-3 text-right">
+          <div>
             <%= form.label :example, class: "perFieldFont" %>
           </div>
         </div>
 
-        <div class="col-6">
+        <div class="col-9">
           <div class="perField">
-            <%= form.text_area :example %>
+            <%= form.text_area :example, cols: "70" %>
           </div>
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-6">
-          <div class="perFieldFont">
+      <div class="row mb-4">
+        <div class="col-3 text-right">
+          <div>
             <%= form.label :pronunciation, class: "perFieldFont" %> 
           </div>
         </div>
 
-        <div class="col-6">
+        <div class="col-9">
           <div class=“perField”>
-            <%= form.file_field :pronunciation %> 
+            <%= form.file_field :pronunciation, cols: "70" %> 
           </div>
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-12">
-          <div class=“perField”>
+      <div class="row mb-4">
+        <div class="col-3 text-right">
+          <div class="perFieldFont">
+             <p>Select tag</p>
+          </div>
+        </div>
+
+        <div class="col-9">
+          <div class="perField pt-3 mr-2">
             <%= collection_check_boxes(:post, :tag_ids, Tag.all, :id, :name) %>
+          
           </div>
         </div>
-      </div>
+      
 
-       <div class="row">
+       <div class="row mb-4">
         <div class="col-12">
           <div class="perField">
             <%= form.submit class: "btn btn-sm-primary" %>

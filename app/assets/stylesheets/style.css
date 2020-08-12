@@ -63,6 +63,13 @@ a:hover {
     font-family: 'IBM Plex Sans', sans-serif; 
     font-weight: 500;
     font-size: 25px;
+    /* align-self: flex-end; */
+    /* align-items: right; */
+    
+}
+
+.perFieldAlignRight {
+    justify-content: flex-end;
 }
 
 .perField {
@@ -80,11 +87,6 @@ a:hover {
     font-size: 20px;
 }
 
-#font {
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-weight: 500;
-    font-size: 20px;
-}
 
 /* classes: Playfair Display Font */
 .playfairRegular {
