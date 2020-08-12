@@ -10,7 +10,6 @@
     
   </div>
 
-  
 
   <div class="col-sm-7">
     <p>
@@ -66,16 +65,16 @@
 
       <div class="container pb-cmnt-container mt-3">
         <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-                <div class="panel panel-info">
-                    <div class="panel-body">
-                        <%= form_for [@post, @comment], html: {class: ""} do |f| %>
-                          <%= f.text_area :comments, placeholder:"Write your comment here!", class: "form-control" %>
-                          <%= f.submit "Comment", class: "btn btn-sm btn-primary mt-2 mb-5" %>
-                        <% end %>
-                    </div>
-                </div>
+          <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-info">
+              <div class="panel-body">
+                <%= form_for [@post, @comment], html: {class: ""} do |f| %>
+                <%= f.text_area :comments, placeholder:"Write your comment here!", class: "form-control" %>
+                <%= f.submit "Comment", class: "btn btn-sm btn-primary mt-2 mb-5" %>
+                <% end %>
+              </div>
             </div>
+          </div>
         </div>
       </div>
     </div>
