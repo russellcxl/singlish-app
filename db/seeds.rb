@@ -6,10 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# Admin
-User.create! :username => "Admin", :firstname => "Jim", :lastname => "Carrey", :email => "admin@admin.com", :password => "qweqwe", :password_confirmation => "qweqwe", :role => 1, :profile_pic => "../app/assets/images/avatar-youtube-cat-cute-dog-thumbnail.jpg"
+#Admin
+User.create! :username => "Admin", :firstname => "Jim", :lastname => "Carrey", :email => "admin@admin.com", :password => "qweqwe", :password_confirmation => "qweqwe", :role => 1
 
-# User
+User
 User.create! :username => "Hoho", :firstname => "Henry", :lastname => "Ho", :email => "henry@ho.com", :password => "qweqwe", :password_confirmation => "qweqwe"
 
 User.create! :username => "Sally123", :firstname => "Sally", :lastname => "Sim", :email => "sally@sim.com", :password => "qweqwe", :password_confirmation => "qweqwe"
@@ -29,5 +29,5 @@ Tag.create! :name => "Tamil"
 
 Tag.create! :name => "Army Lingo"
 
-
+# Post
 Post.create! :word => "Singlish", :description => "Colloquial Singaporean English, better known as Singlish, is an English-based creole language spoken in Singapore. The term Singlish is a blend of Singaporean slang and English and was first recorded in 1973.", :meaning => "Singlish means Singlish lor", :user_id =>"1"

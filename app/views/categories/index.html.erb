@@ -5,4 +5,5 @@
     <% ("a".."z").each do |letter| %>
         <%= link_to letter.upcase, category_path(letter) %>
     <% end %>
+    <%= link_to "1-9", category_path("1-9") %>
 </ul>
