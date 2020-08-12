@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_action :nav_tags
   def index
     @comment = Comment.new
     @user = User.find(current_user.id)
@@ -36,5 +37,9 @@ class CommentsController < ApplicationController
   private
   def comment_params
     params.require(:comment).permit(:comments, :user_id, :post_id)
+  end
+
+  def nav_tags
+    @tags = Tag.all
   end
 end
