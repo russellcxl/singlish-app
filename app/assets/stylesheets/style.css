@@ -129,9 +129,31 @@ input[type="search"]::-webkit-search-results-decoration {
 
 /* USERS#SHOW */
 .new-post-icon {
-    transition: all 0.5s ease;
+    transition: 0.5s ease;
 }
 
 .new-post-icon:hover {
     transform: rotate(90deg);
+}
+
+.profile-posts {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 50px;
+    column-gap: 100px;
+    row-gap: 30px;
+}
+
+.profile-posts-add {
+    opacity: 0.3;
+    transition: 0.5s ease-in-out;
+}
+
+.profile-posts-add:hover {
+    opacity: 1;
+}
+
+.profile-posts-add:hover > .new-post-icon {
+    transform: rotate(90deg);
+    opacity: 1;
 }
