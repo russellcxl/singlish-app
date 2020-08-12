@@ -111,22 +111,30 @@ a:hover {
     margin-left: 30px;
 }
 
-.perField {
-    font-family: 'IBM Plex Sans', sans-serif;
+.perFieldFont {
+    font-family: 'IBM Plex Sans', sans-serif; 
     font-weight: 500;
     font-size: 25px;
-    margin-bottom: 50px;
-    display: flex;
-    align-content: start;
+    /* align-self: flex-end; */
+    /* align-items: right; */
     
 }
 
-.createPost {
-    font-family: 'IBM Plex Sans', sans-serif;
+.perField {
+    font-family: 'IBM Plex Sans', sans-serif; 
     font-weight: 500;
-    font-size: 20px;
+    font-size: 14px;
+    /* margin-bottom: 50px; */
+    display: flex;
+    align-content: start;
 }
 
+/* VIEW/POST/1 */
+.commentFont {
+    font-family: 'IBM Plex Sans', sans-serif; 
+    font-weight: 500;
+    font-size: 16px;
+}
 
 /* classes: Playfair Display Font */
 .playfairRegular {
@@ -147,6 +155,28 @@ a:hover {
 .playfairExtraBold {
     font-family: 'Playfair Display', serif;
     font-weight: 800;
+}
+
+/* classes: IBM Plex Sans Font */
+.ibmLight {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 300;
+}
+
+.ibmReg {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 400;
+}
+
+.ibmMedium {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 500;
+    font-size: 50px;
+}
+
+.ibmBold {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 700;
 }
 
 
@@ -190,7 +220,7 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .profile-posts {
     font-family: 'IBM Plex Sans', serif;
-    font-weight: 700;
+    font-weight: 300;
     font-size: 50px;
     column-gap: 100px;
     row-gap: 30px;

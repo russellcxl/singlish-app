@@ -11,44 +11,110 @@
     </div>
   <% end %>
 
-
-<div class="row mt-5">
-  <div class="col-sm-3 addNewWord">
-    <u>add <br> a new <br> word</u>
-  </div>
-
-  <div class="col-sm-7">
-    <div class=“perField”>
-      <%= form.label :word %>
-      <%= form.text_area :word %>
+<div class="container-fluid">
+  <div class="row">
+    
+    <div class="col-3 addNewWord">
+      <u>add <br> a new <br> word</u>
     </div>
 
-    <div class="perField">
-      <%= form.label :meaning %>
-      <%= form.text_area :meaning %>
-    </div>
+  
+    <div class="col-8 mt-4">
 
-    <div class="perField">
-      <%= form.label :description %>
-      <%= form.text_area :description %>
-    </div>
+      <div class="row mb-4">
+        <div class="col-3 text-right">
+          <div>
+            <%= form.label :word, class: "perFieldFont" %>
+          </div>
+        </div>
 
-    <div class="perField">
-      <%= form.label :example %>
-      <%= form.text_area :example %>
-    </div>
+        <div class="col-9">
+          <div class="perField">
+            <%= form.text_area :word, cols: "70" %>
+          </div>
+        </div>
+      </div>
 
-    <div class=“perField”>
-      <%= form.label :pronunciation %> 
-      <%= form.file_field :pronunciation %> 
-    </div>
+      <div class="row mb-4">
+        <div class="col-3 text-right">
+          <div>
+            <%= form.label :meaning, class: "perFieldFont" %>
+          </div>
+        </div>
 
-    <div>
-        <%= collection_check_boxes(:post, :tag_ids, Tag.all, :id, :name) %>
-    </div>
+        <div class="col-9">
+          <div class="perField">
+            <%= form.text_area :meaning, cols: "70" %>
+          </div>
+        </div>
+      </div>
 
-  <div class="actions">
-    <%= form.submit %>
+      <div class="row mb-4">
+        <div class="col-3 text-right">
+          <div>
+            <%= form.label :description, class: "perFieldFont" %>
+          </div>
+        </div>
+
+        <div class="col-9">
+          <div class="perField">
+          <%= form.text_area :description, cols: "70" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-4">
+        <div class="col-3 text-right">
+          <div>
+            <%= form.label :example, class: "perFieldFont" %>
+          </div>
+        </div>
+
+        <div class="col-9">
+          <div class="perField">
+            <%= form.text_area :example, cols: "70" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-4">
+        <div class="col-3 text-right">
+          <div>
+            <%= form.label :pronunciation, class: "perFieldFont" %> 
+          </div>
+        </div>
+
+        <div class="col-9">
+          <div class=“perField”>
+            <%= form.file_field :pronunciation, cols: "70" %> 
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-4">
+        <div class="col-3 text-right">
+          <div class="perFieldFont">
+             <p>Select tag</p>
+          </div>
+        </div>
+
+        <div class="col-9">
+          <div class="perField pt-3 mr-2">
+            <%= collection_check_boxes(:post, :tag_ids, Tag.all, :id, :name) %>
+          
+          </div>
+        </div>
+      
+
+       <div class="row mb-4">
+        <div class="col-12">
+          <div class="perField">
+            <%= form.submit class: "btn btn-sm-primary" %>
+          </div>
+        </div>
+      </div>
+
   </div>
 </div>
+
 <% end %>

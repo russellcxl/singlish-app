@@ -1,13 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 
-<div class="main-container mx-5 mt-5">
-
+<div class="container-fluid mt-5">
   
   <div class="row">
 
     <%# profile column %>
-    <div class="col-sm-2 d-flex justify-content-start align-items-center flex-column">
+    <div class="col-3 d-flex justify-content-start align-items-center flex-column">
 
       <% if @user.profile_pic.attached? %>
         <%= image_tag @user.profile_pic, :style => "border: 5px solid #9B6A6C; border-radius: 50%;", width: 300, height: "auto" %>
@@ -29,28 +28,51 @@
       </ul>
 
     </div>
+    
 
+    <div class="col-9"> 
 
-    <%# POSTS column %>
-    <div class="col-sm-2 mt-5 d-flex justify-content-center">
-      <p class="profile-posts" style="font-size: 50px;"><u>POSTS</u> </p>
-    </div>
+      <div class="row"> 
+        <%# POSTS column %>
+        <div class="col-3 mt-5 d-flex justify-content-end">
+          <p class="ibmMedium" style="font-size: 40px;"><u>POSTS</u></p>
+        </div>
 
-    <%# posts column %>
-    <div class="col-sm-7 mt-5 pl-3">
-      <div class="posts-container" style="display: grid; grid-template-columns: repeat(3, 1fr);">
+        <%# posts column %>
+        <div class="col-9 mt-5 pl-3">
+          <div class="posts-container" style="display: grid; grid-template-columns: repeat(3, 1fr);">
 
-        <% Post.where(user_id: current_user.id).each do |post| %>
-          <%= link_to post.word.upcase, post_path(post), class: "profile-posts" %>
-        <% end %>
+            <% Post.where(user_id: current_user.id).each do |post| %>
+              <%= link_to post.word.downcase, post_path(post), class: "profile-posts" %>
+            <% end %>
 
-        <%= link_to new_post_path do %> 
-          <p class="profile-posts profile-posts-add">ADD WORD <i class="fas fa-plus new-post-icon"></i></p>
-        <% end %>
+            <%= link_to new_post_path do %> 
+              <p class="profile-posts profile-posts-add">ADD WORD <i class="fas fa-plus new-post-icon"></i></p>
+            <% end %>
+
+          </div>
+        </div>
+      </div>
+        
+
+      <%# favourites %>
+      <div class="row"> 
+         <%# FAV column %>
+        <div class="col-3 mt-5 d-flex justify-content-end">
+          <p class="ibmMedium" style="font-size: 40px;"><u>FAVOURITES</u> </p>
+        </div>
+
+        <div class="col-9 mt-5 pl-3">
+          <div class="posts-container" style="display: grid; grid-template-columns: repeat(3, 1fr);">
+
+            <% current_user.favourite_words.each do |word| %>
+              <%= link_to Post.find(word).word.downcase, post_path(word), class: "profile-posts" %>
+            <% end %>
+          </div>
+        </div>
 
       </div>
     </div>
-
 
 
   </div>
