@@ -37,7 +37,7 @@
     </div>
 
     <%# posts column %>
-    <div class="col-sm-7 mt-5">
+    <div class="col-sm-7 mt-5 pl-3">
       <div class="posts-container" style="display: grid; grid-template-columns: repeat(3, 1fr);">
 
         <% Post.where(user_id: current_user.id).each do |post| %>
