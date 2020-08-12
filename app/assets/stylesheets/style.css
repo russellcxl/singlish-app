@@ -59,14 +59,19 @@ a:hover {
     margin-left: 30px;
 }
 
+.perFieldFont {
+    font-family: 'IBM Plex Sans', sans-serif; 
+    font-weight: 500;
+    font-size: 25px;
+}
+
 .perField {
-    font-family: 'IBM Plex Sans', sans-serif;
+    font-family: 'IBM Plex Sans', sans-serif; 
     font-weight: 500;
     font-size: 25px;
     margin-bottom: 50px;
     display: flex;
     align-content: start;
-    
 }
 
 .createPost {
@@ -75,6 +80,11 @@ a:hover {
     font-size: 20px;
 }
 
+#font {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+}
 
 /* classes: Playfair Display Font */
 .playfairRegular {
@@ -95,6 +105,27 @@ a:hover {
 .playfairExtraBold {
     font-family: 'Playfair Display', serif;
     font-weight: 800;
+}
+
+/* classes: IBM Plex Sans Font */
+.ibmLight {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 300;
+}
+
+.ibmReg {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 400;
+}
+
+.ibmMedium {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 500;
+}
+
+.ibmBold {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 700;
 }
 
 
