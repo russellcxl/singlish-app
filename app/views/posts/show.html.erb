@@ -1,86 +1,121 @@
 <p id="notice"><%= notice %></p>
 
 
+<div class="container-fluid">
 
-<div class="row mt-5">
-  <div class="col-sm-3 addNewWord">
-    <p>  
-      <u><%= @post.word %></u>
-    </p>
-    
-  </div>
+  <div class="row">
 
-  
-
-  <div class="col-sm-7">
-    <p>
-      <strong>means:</strong>
-      <%= @post.meaning %>
-    </p>
-
-    <p>
-      <% if @post.pronunciation.attached? %>
-        <%=audio_tag (url_for(@post.pronunciation)),controls:"" %>
-      <% end %>
-    </p>
-
-    <p>
-      <strong>used in sentence:</strong>
-      <%= @post.example %>
-    </p>
-
-    <p> By: <%= link_to @post.user.username, user_path(@post.user.id) %>
-    </p>
-
-
-    <p> Tags : <% @post.tags.each do |tag| %>
-
-          <td><%= link_to tag.name, tag_path(tag) %></td>
-      
-
-      <% end %> 
-    </p>
-  
-    <% if current_user.username == @post.user.username %>
-      <p> <%= link_to 'Edit', edit_post_path(@post) %> </p>
-    <% end %>
-
-    <div class= "container">
-      <h5>Comments</h5>
-      <% @post.comments.each do |comment| %>                            
-
-        <div class="media text-muted pt-3 w-100">
-
-          <!-- comment -->
-          <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray w-75">
-            
-            <% if current_user.profile_pic.attached? %>
-              <%= image_tag (comment.user.profile_pic), :style => "border: 2px solid black", width: 50, height: "auto" %>
-            <% end %>
-            
-            <strong class="d-block text-gray-dark"><%= comment.user.username %> @ <%= comment.created_at.in_time_zone('Singapore') %></strong>
-            <%= comment.comments %>
-          </p>
-        </div>
-      <% end %>
-
-      <div class="container pb-cmnt-container mt-3">
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-                <div class="panel panel-info">
-                    <div class="panel-body">
-                        <%= form_for [@post, @comment], html: {class: ""} do |f| %>
-                          <%= f.text_area :comments, placeholder:"Write your comment here!", class: "form-control" %>
-                          <%= f.submit "Comment", class: "btn btn-sm btn-primary mt-2 mb-5" %>
-                        <% end %>
-                    </div>
-                </div>
-            </div>
-        </div>
-      </div>
+    <div class="col-3 addNewWord">
+      <p><u><%= @post.word %></u></p>
+      <br><p> By: <%= link_to @post.user.username, user_path(@post.user.id) %></p> 
+      <br> <% if current_user.username == @post.user.username %>
+            <p> <%= link_to 'Edit', edit_post_path(@post) %> </p>
+          <% end %>
     </div>
 
+      <div class="col-8 mt-4"> 
+      
+        <%# means %>
+        <div class="row">
+          <div class="col-3">
+            <p><strong>means:</strong></p>
+          </div>
+
+          <div class="col-9">
+            <%= @post.meaning %>
+          </div>
+        </div>
+      
+        <%# pronunciation %>
+        <div class="row">
+          <div class="col-3">
+            <p>
+              <% if @post.pronunciation.attached? %>
+                <%=audio_tag (url_for(@post.pronunciation)),controls:"" %>
+              <% end %>
+            </p>
+          </div>
+        </div>
+
+        <%# description, hide title, display description %>
+        <div class="row">
+          <div class="col-3">
+
+          </div>
+
+          <div class="col-9">
+            <%= @post.description %>
+          </div>
+        </div>
+
+        <%# example %>
+        <div class="row">
+          <div class="col-3">
+            <p><strong>used in sentence:</strong></p>
+          </div>
+          
+          <div class="col-9">
+            <%= @post.example %>
+          </div>
+        </div>
+
+        <%# tags %>
+        <div class="row">
+          <div class="col-3">
+          <p>Tags:</p>
+          </div>
+
+          <div class="col-9">
+            <p><% @post.tags.each do |tag| %>
+                <td><%= link_to tag.name, tag_path(tag) %></td>
+              <% end %> 
+            </p>
+          </div>
+        </div>
+          
+        <%# comment %>
+        <div class="row">
+          <div class="col-12">         
+            <p>Comments</p>
+            <% @post.comments.each do |comment| %>                            
+
+              <div class="media text-muted pt-3 w-100">
+
+                <!-- comment -->
+                <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray w-75">
+                    
+                  <% if current_user.profile_pic.attached? %>
+                    <%= image_tag (comment.user.profile_pic), :style => "border: 2px solid black", width: 50, height: "auto" %>
+                  <% end %>
+                    
+                  <strong class="d-block text-gray-dark"><%= comment.user.username %> @ <%= comment.created_at.in_time_zone('Singapore') %></strong>
+                  <%= comment.comments %>
+                </p>
+              </div>
+            <% end %>
+
+              <div class="container pb-cmnt-container mt-3">
+                <div class="row">
+                  <div class="col-md-6 col-md-offset-3">
+                    <div class="panel panel-info">
+                      <div class="panel-body">
+                        <%= form_for [@post, @comment], html: {class: ""} do |f| %>
+                              
+                        <%= f.text_area :comments, placeholder:"Write your comment here!", class: "form-control" %>
+                              
+                        <%= f.submit "Comment", class: "btn btn-sm btn-primary mt-2 mb-5" %>
+                              
+                        <% end %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+          </div>
+        </div>
+          
+      </div>
+
   </div>
-
 </div>
-
