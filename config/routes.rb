@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  patch "/posts/:id/favourite", to: "posts#favourite", as: :new_favourite_word
+
   resources :posts do 
     resources :comments
   end
@@ -11,9 +14,6 @@ Rails.application.routes.draw do
   # get 'users/update'
   # get 'users/destroy'
   get 'search', to: "posts#search"
-
-  patch "/post/:id/favourite", to: "posts#favourite", as: :new_favourite_word
-  #  get "/post/:id", to: "us#show", as: :show_profile
 
   resources :categories
   devise_for :users
