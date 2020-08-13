@@ -42,7 +42,7 @@
         <div class="col-9 mt-5 pl-3">
           <div class="posts-container" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
 
-            <% Post.where(user_id: current_user.id).each do |post| %>
+            <% Post.where(user_id: @user.id).each do |post| %>
               <%= link_to post.word.downcase, post_path(post), class: "profile-posts" %>
             <% end %>
 
