@@ -13,7 +13,7 @@
           <%= f.submit "favourite this word", class: "btn btn-primary" %>
           <% end %>
 
-      <br> <% if current_user.username == @post.user.username %>
+      <br> <% if current_user %>
             <p class="commentFont"> <%= link_to 'Edit', edit_post_path(@post) %> </p>
           <% end %>
     </div>
