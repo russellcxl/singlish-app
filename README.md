@@ -10,8 +10,8 @@ ERD:
 Wireframes:
 
 ![wireframe 1](app/assets/images/wireframe_1.jpg)
-![wireframe 2](app/assets/images/wireframe_2.jpg)
-![wireframe 3](app/assets/images/wireframe_3.jpg)
+![wireframe 2](app/assets/images/wireframe_2.JPG)
+![wireframe 3](app/assets/images/wireframe_3.JPG)
 
 ### MVP
 - User authentication
