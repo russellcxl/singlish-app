@@ -7,13 +7,16 @@
 
     <div class="col-3 addNewWord">
       <p><u><%= @post.word %></u></p>
-      <br><p class="commentFont"> By: <%= link_to @post.user.username, user_path(@post.user.id) %></p> 
+      <br><p class="commentFont"> By: <%= link_to @post.user.username, user_path(@post.user.id) %></p><br> 
       
-      <br><%= form_for @post, url: new_favourite_word_path(@post.id) do |f| %>
-          <%= f.submit "favourite this word", class: "btn btn-primary" %>
+          <% if user_signed_in? %>
+            <%= form_for @post, url: new_favourite_word_path(@post.id) do |f| %>
+              <%= f.submit "favourite this word", class: "btn btn-primary" %>
+            <% end %>
           <% end %>
+      
 
-      <br> <% if current_user.username == @post.user.username %>
+      <br> <% if current_user %>
             <p class="commentFont"> <%= link_to 'Edit', edit_post_path(@post) %> </p>
           <% end %>
     </div>
@@ -92,10 +95,13 @@
 
               <div class="media text-muted pt-3 w-100">
                 <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray w-75">
-                    
-                  <% if current_user.profile_pic.attached? %>
-                    <%= image_tag (comment.user.profile_pic), :style => "border: 2px solid black", width: 50, height: "auto" %>
-                  <% end %>
+
+                  <% if user_signed_in? %>
+                    <% if current_user.profile_pic.attached? %>
+                      <%= image_tag (comment.user.profile_pic), :style => "border: 2px solid black", width: 50, height: "auto" %>
+                    <% end %>
+                  <% end %> 
+                  
                     
                   <strong class="d-block text-gray-dark"><%= comment.user.username %> @ <%= comment.created_at.in_time_zone('Singapore') %></strong>
                   <%= comment.comments %>

@@ -189,7 +189,7 @@ a:hover {
     box-sizing: border-box !important;
     -webkit-transition: all .3s linear;
     transition: all .3s linear;
-    color: white!;
+    color: white !important;
     font-weight: 400;
     -webkit-appearance: none;
 }
