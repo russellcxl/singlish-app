@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   patch "/posts/:id/favourite", to: "posts#favourite", as: :new_favourite_word
 
+  # devise_for :users, :controllers => { :registrations => :registrations }
+
   resources :posts do 
     resources :comments
   end
