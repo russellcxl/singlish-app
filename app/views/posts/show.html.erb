@@ -7,11 +7,14 @@
 
     <div class="col-3 addNewWord">
       <p><u><%= @post.word %></u></p>
-      <br><p class="commentFont"> By: <%= link_to @post.user.username, user_path(@post.user.id) %></p> 
+      <br><p class="commentFont"> By: <%= link_to @post.user.username, user_path(@post.user.id) %></p><br> 
       
-      <br><%= form_for @post, url: new_favourite_word_path(@post.id) do |f| %>
-          <%= f.submit "favourite this word", class: "btn btn-primary" %>
+          <% if user_signed_in? %>
+            <%= form_for @post, url: new_favourite_word_path(@post.id) do |f| %>
+              <%= f.submit "favourite this word", class: "btn btn-primary" %>
+            <% end %>
           <% end %>
+      
 
       <br> <% if current_user %>
             <p class="commentFont"> <%= link_to 'Edit', edit_post_path(@post) %> </p>
