@@ -4,7 +4,7 @@
         <div class="row">
             <% @posts.each do |tag| %>
                 <div class="col-4 wordsByAlphabet mb-5" >
-                    <%= link_to tag.word, post_path(tag.id) %>
+                    <%= link_to tag.word.downcase, post_path(tag.id) %>
                 </div>
             <% end %>
         </div>
