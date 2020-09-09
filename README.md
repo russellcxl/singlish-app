@@ -13,7 +13,7 @@ Wireframes:
 ![wireframe 2](app/assets/images/wireframe_2.JPG)
 ![wireframe 3](app/assets/images/wireframe_3.JPG)
 
-### MVP
+### MVP 
 - User authentication
 - CRUD for entries
 - Comments
