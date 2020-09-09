@@ -7,62 +7,50 @@
 
     <div class="col-3 addNewWord">
       <p><u><%= @post.word %></u></p>
-      <br><p class="commentFont"> By: <%= link_to @post.user.username, user_path(@post.user.id) %></p><br> 
       
-          <% if user_signed_in? %>
-            <%= form_for @post, url: new_favourite_word_path(@post.id) do |f| %>
-              <%= f.submit "favourite this word", class: "btn btn-primary" %>
-            <% end %>
-          <% end %>
+      
+          <%# if user_signed_in? %>
+            <%#= form_for @post, url: new_favourite_word_path(@post.id) do |f| %>
+              <%#= f.submit "favourite this word", class: "btn btn-primary" %>
+            <%# end %>
+          <%# end %>
       
 
-      <br> <% if current_user %>
+      <br> <% if @post.user.id == current_user.id %>
             <p class="commentFont"> <%= link_to 'Edit', edit_post_path(@post) %> </p>
           <% end %>
     </div>
 
+
+      <%# main text container %>
       <div class="col-8 mt-4"> 
       
         <%# means %>
-        <div class="row">
+        <div class="row mb-3">
           <div class="col-3 perFieldFont">
             <p>means:</p>
-          </div>
-
-          <div class="col-9">
-            <%= @post.meaning %>
-          </div>
-        </div>
-    
-        <%# pronunciation %>
-        <div class="row">
-          <div class="col-3 perFieldFont">
-            <p>sound:
-              <% if @post.pronunciation.attached? %>
-                <%=audio_tag (url_for(@post.pronunciation)),controls:"" %>
-              <% end %>
-            </p>
-          </div>
-          
-          <%# to add spacing %>
-          <div class="col-9">
-
-          </div>
-        </div>
-
-        <%# description, hide title, display description %>
-        <div class="row">
-          <div class="col-3 perFieldFont">
-
           </div>
 
           <div class="col-9">
             <%= @post.description %>
           </div>
         </div>
+    
+        <%# pronunciation %>
+        <div class="row mb-3">
+          <div class="col-3 perFieldFont">
+              <p>pronunciation: </p>
+          </div>
+          <div class="col-9">
+            <% if @post.pronunciation.attached? %>
+                  <%=audio_tag (url_for(@post.pronunciation)), controls:"play" %>
+                <% end %>
+          </div>
+
+        </div>
 
         <%# example %>
-        <div class="row">
+        <div class="row mb-3">
           <div class="col-3 perFieldFont">
             <p>used in sentence:</p>
           </div>
@@ -73,9 +61,9 @@
         </div>
 
         <%# tags %>
-        <div class="row">
+        <div class="row mb-3">
           <div class="col-3 perFieldFont">
-          <p>Tags:</p>
+          <p>tags:</p>
           </div>
 
           <div class="col-9">
@@ -85,11 +73,23 @@
             </p>
           </div>
         </div>
+
+        <%# tags %>
+        <div class="row mb-3">
+          <div class="col-3 perFieldFont">
+          <p>contributed by:</p>
+          </div>
+
+          <div class="col-9">
+            <p><%= link_to @post.user.username, user_path(@post.user.id) %>
+            </p>
+          </div>
+        </div>
           
         <%# comment %>
-        <div class="row">
+        <div class="row mb-3">
           <div class="col-12">         
-            <p class="commentFont">Comments</p>
+            <p class="perFieldFont">comments: </p>
 
             <% @post.comments.each do |comment| %>                            
 
@@ -98,12 +98,12 @@
 
                   <% if user_signed_in? %>
                     <% if current_user.profile_pic.attached? %>
-                      <%= image_tag (comment.user.profile_pic), :style => "border: 2px solid black", width: 50, height: "auto" %>
+                      <%= image_tag (comment.user.profile_pic), :style => "border: 3px solid #9B6A6C; border-radius: 50%;", width: 50, height: "auto" %>
                     <% end %>
                   <% end %> 
                   
                     
-                  <strong class="d-block text-gray-dark"><%= comment.user.username %> @ <%= comment.created_at.in_time_zone('Singapore') %></strong>
+                  <strong class="d-block text-gray-dark mb-3"><%= comment.user.username %> @ <%= comment.created_at.strftime("%d %b %Y, %I:%M%p") %></strong>
                   <%= comment.comments %>
                 </p>
               </div>
