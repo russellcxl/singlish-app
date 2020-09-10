@@ -1,7 +1,7 @@
 ## SEI-23 Project 3 – Singlish
 
 ### Problem Statement
-Many times, foreign visitors who are residing in Singapore find it hard to understand the locals' unoffical language. To create a more inculsive community, this is the <strong>Singlish app</strong>. 
+Many times, foreign visitors who are residing in Singapore find it hard to understand the locals' unofficial language. To create a more inclusive community, this is the <strong>Singlish app</strong>. 
 
 ### Wireframes, ERD
 ERD:
@@ -13,7 +13,7 @@ Wireframes:
 ![wireframe 2](app/assets/images/wireframe_2.JPG)
 ![wireframe 3](app/assets/images/wireframe_3.JPG)
 
-### MVP
+### MVP 
 - User authentication
 - CRUD for entries
 - Comments
